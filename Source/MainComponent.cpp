@@ -49,8 +49,8 @@ void MainComponent::getNextAudioBlock (const juce::AudioSourceChannelInfo& buffe
     juce::WavAudioFormat format;
     std::unique_ptr<juce::AudioFormatWriter> writer;
     writer.reset(format.createWriterFor(new juce::FileOutputStream(file), 44100.0, 1, 16, {}, 0));
-    
     writer->writeFromAudioSampleBuffer(buffer, 0, buffer.getNumSamples());
+    juce::JUCEApplicationBase::quit();
 
 }
 
